@@ -141,6 +141,15 @@
 - belongs_to :seller, class_name: “user”
 - belongs_to :buyer, class_name: “user”
 
+## item_img
+|Column|Type|Options|
+|------|----|-------|
+|image|string|null: false|
+|item_id|references|null: false, foreign_key: true|
+
+### Association
+-  belongs_to :item
+
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
