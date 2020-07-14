@@ -1,6 +1,6 @@
 ## usersテーブル
 |Column|Type|Options|
-|———-|——-|———-|
+|------|----|-------|
 |nickname|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false|
@@ -20,7 +20,7 @@
 
 ## user_detailテーブル
 |Column|Type|Options|
-|———-|——-|———-|
+|------|----|-------|
 |family_name|string|null: false|
 |first_name|string|null: false, unique: true|
 |family_name_kana|string|null: false|
@@ -37,7 +37,7 @@
 
 ## shipping_infoテーブル
 |Column|Type|Options|
-|———-|——-|———-|
+|------|----|-------|
 |family_name|string|null: false|
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
@@ -55,7 +55,7 @@
 
 ## todo_listテーブル
 |Column|Type|Options|
-|———-|——-|———-|
+|------|----|-------|
 |todo_list|string||
 |user_id|references|null: false, unique: true|
 
@@ -64,7 +64,7 @@
 
 ## creditcardテーブル
 |Column|Type|Options|
-|———-|——-|———-|
+|------|----|-------|
 |card_number|bigint|null: false, foreign_key: true|
 |year|integer|null: false|
 |month|integer|null: false|
@@ -76,7 +76,7 @@
 
 ## commentsテーブル
 |Column|Type|Options|
-|———-|——-|———-|
+|------|----|-------|
 |comment|text|null: false|
 |user_id|references|null: false, unique: true|
 |item_id|references|null: false, foreign_key: true|
@@ -87,7 +87,7 @@
 
 ## favosテーブル
 |Column|Type|Options|
-|———-|——-|———-|
+|------|----|-------|
 |user_id|references|null: false, unique: true|
 |item_id|references|null: false, foreign_key: true|
 
@@ -97,7 +97,7 @@
 
 ## evaluationsテーブル
 |Column|Type|Options|
-|———-|——-|———-|
+|------|----|-------|
 |evaluation_text|text|null: false|
 |evaluation|enum|null: false|
 |user_id|references|null: false, unique: true|
@@ -109,7 +109,7 @@
 
 ## itemsテーブル
 |Column|Type|Options|
-|———-|——-|———-|
+|------|----|-------|
 |item|string|null: false|
 |item_explanation|text|null: false|
 |price|integer|null: false|
@@ -143,7 +143,7 @@
 
 ## brandsテーブル
 |Column|Type|Options|
-|———-|——-|———-|
+|------|----|-------|
 |brand|string||
 
 ### Association
@@ -151,7 +151,7 @@
 
 ## categoriesテーブル
 |Column|Type|Options|
-|———-|——-|———-|
+|------|----|-------|
 |category|string|null: false|
 |anecetry|string|null: false|
 
@@ -160,7 +160,7 @@
 
 ## item_conditionsテーブル
 |Column|Type|Options|
-|———-|——-|———-|
+|------|----|-------|
 |condition|string|null: false|
 
 ### Association
@@ -168,7 +168,7 @@
 
 ## shipping_methodsテーブル
 |Column|Type|Options|
-|———-|——-|———-|
+|------|----|-------|
 |method|string|null: false|
 
 ### Association
@@ -176,7 +176,7 @@
 
 ## shipping_costsテーブル
 |Column|Type|Options|
-|———-|——-|———-|
+|------|----|-------|
 |cost|string|null: false|
 
 ### Association
@@ -184,7 +184,7 @@
 
 ## shipping_daysテーブル
 |Column|Type|Options|
-|———-|——-|———-|
+|------|----|-------|
 |day|string|null: false|
 
 ### Association
@@ -192,7 +192,7 @@
 
 ## item_sizesテーブル
 |Column|Type|Options|
-|———-|——-|———-|
+|------|----|-------|
 |size|string|null: false|
 
 ### Association
