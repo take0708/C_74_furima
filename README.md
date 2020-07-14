@@ -139,7 +139,7 @@
 - belongs_to :seller, class_name: “user”
 - belongs_to :buyer, class_name: “user”
 
-## item_img
+## item_imgsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
