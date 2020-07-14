@@ -16,9 +16,9 @@
 - has_many :favo
 - has_many :evaluation
 - has_many :seller_items, foreign_key: “seller_id”, class_name: “items”
-- has_many :buy_items, foreign_key: “buyer_id”, class_name: “items”
+- has_many :buyer_items, foreign_key: “buyer_id”, class_name: “items”
 
-## user_detailテーブル
+## user_detailsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |family_name|string|null: false|
@@ -35,7 +35,7 @@
 ### Association
 - belongs_to :user
 
-## shipping_infoテーブル
+## shipping_infosテーブル
 |Column|Type|Options|
 |------|----|-------|
 |family_name|string|null: false|
@@ -53,7 +53,7 @@
 ### Association
 - belongs_to :user
 
-## todo_listテーブル
+## todo_listsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |todo_list|string||
@@ -62,7 +62,7 @@
 ### Association
 - belongs_to :user
 
-## creditcardテーブル
+## creditcardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |card_number|bigint|null: false, foreign_key: true|
@@ -85,7 +85,7 @@
 - belongs_to :user
 - belongs_to :item
 
-## favosテーブル
+## favoritesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, unique: true|
