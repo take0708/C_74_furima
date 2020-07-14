@@ -7,14 +7,12 @@
 
 ### Association
 - has_one :user_detail, dependent: :destroy
-- has_one :sns_approval, dependent: :destroy
 - has_one :shipping_info, dependent: :destroy
-- has_many :todo_list
-- has_one :point
+- has_many :todo_lists
 - has_one :creditcard, dependent: :destroy
-- has_many :comment
-- has_many :favo
-- has_many :evaluation
+- has_many :comments
+- has_many :favorites
+- has_many :evaluations
 - has_many :seller_items, foreign_key: “seller_id”, class_name: “items”
 - has_many :buyer_items, foreign_key: “buyer_id”, class_name: “items”
 
@@ -110,7 +108,7 @@
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|item|string|null: false|
+|item_name|string|null: false|
 |item_explanation|text|null: false|
 |price|integer|null: false|
 |dealing|enum|null: false|
@@ -127,10 +125,10 @@
 |buyer_id|references|null: false, foreign_key: true|
 
 ### Association
-- has_many :item_img, dependent: :destroy
-- has_many :comment, dependent: :destroy
-- has_many :favo
-- has_many :evaluation
+- has_many :item_imgs, dependent: :destroy
+- has_many :comments, dependent: :destroy
+- has_many :favorites
+- has_many :evaluations
 - belongs_to :brand
 - belongs_to :category
 - belongs_to_active_hash :item_condition
