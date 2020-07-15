@@ -108,7 +108,7 @@
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|item_name|string|null: false|
+|name|string|null: false|
 |item_explanation|text|null: false|
 |price|integer|null: false|
 |dealing|enum|null: false|
