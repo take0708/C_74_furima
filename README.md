@@ -113,7 +113,6 @@
 |price|integer|null: false|
 |dealing|enum|null: false|
 |shipping_area|integer|null: false|
-|item_img_id|string|null: false, foreign_key: true|
 |brand_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
 |item_condition_id|references|null: false, foreign_key: true|
@@ -151,7 +150,7 @@
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|brand|string||
+|name|string|null: false|
 
 ### Association
 - has_many :items
