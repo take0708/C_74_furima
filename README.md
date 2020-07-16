@@ -96,7 +96,7 @@
 ## evaluationsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|evaluation_text|text|null: false|
+|text|text|null: false|
 |evaluation|enum|null: false|
 |user_id|references|null: false, unique: true|
 |item_id|references|null: false, foreign_key: true|
