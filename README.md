@@ -126,7 +126,7 @@
 ### Association
 - has_many :item_imgs, dependent: :destroy
 - has_many :comments, dependent: :destroy
-- has_many :favorites
+- has_many :favorites, dependent: :destroy
 - has_many :evaluations
 - belongs_to :brand
 - belongs_to :category
