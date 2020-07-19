@@ -63,11 +63,9 @@
 ## creditcardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|card_number|bigint|null: false, foreign_key: true|
-|year|integer|null: false|
-|month|integer|null: false|
-|sequrity_code|integer|null: false|
 |user_id|references|null: false, foreign_key: true|
+|costomer_id|integer|null: false|
+|card_id|integer|null: false|
 
 ### Association
 - belongs_to user
