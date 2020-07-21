@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2020_07_17_221850) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "category", null: false
-    t.string "anecetry", null: false
+    t.string "name", null: false
+    t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
