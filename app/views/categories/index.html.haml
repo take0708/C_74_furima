@@ -1,0 +1,31 @@
+.container
+  .upSide
+  .downSide
+    .category
+      .parentIndex
+        - @parents.each do |parent|
+          = link_to parent.name
+
+    .categoryTitle
+      .categoryTitle__parents
+        - @parents.each do |parent|
+          .categoryTitle__parent
+            = link_to parent.name, class: "parentLink"
+          
+          .categoryContents
+            - parent.children.each do |child|
+              .categoryContent
+                = link_to child.name, class: "childLink"  
+                
+                .categoryItems
+                  - child.children.each do |grandchild|
+                    .categoryItem
+                      = link_to grandchild.name, class: "grandchildreLink"
+          .upBottom トップページへ
+          .marginSpace
+
+          
+          
+      
+                  
+                    

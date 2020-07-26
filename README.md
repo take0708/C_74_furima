@@ -3,7 +3,7 @@
 |------|----|-------|
 |nickname|string|null: false|
 |email|string|null: false, unique: true|
-|password|string|null: false|
+|encrypted_password|string|null: false|
 
 ### Association
 - has_one :user_detail, dependent: :destroy
@@ -26,7 +26,7 @@
 |birth_year|integer|null: false|
 |birth_month|integer|null: false|
 |birth_day|integer|null: false|
-|introduce|text||
+|introduction|text||
 |icon|string||
 |user_id|references|null: false, foreign_key: true|
 
@@ -63,11 +63,9 @@
 ## creditcardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|card_number|bigint|null: false, foreign_key: true|
-|year|integer|null: false|
-|month|integer|null: false|
-|sequrity_code|integer|null: false|
 |user_id|references|null: false, foreign_key: true|
+|costomer_id|integer|null: false|
+|card_id|integer|null: false|
 
 ### Association
 - belongs_to user

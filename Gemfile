@@ -73,3 +73,5 @@ group :production do
 end
 
 gem 'haml-rails'
+gem 'ancestry'
+gem 'devise'
