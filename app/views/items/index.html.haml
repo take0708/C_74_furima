@@ -3,10 +3,17 @@
     .headerUpper
       %a.headerUpper__link__logo{:href => "#"}
         %img.headerUpper__link__logo{:alt => "logo", :src => "assets/logo/logo.png", :title => "logo"}
+    
       %form.headerUpper__form
-        %input
+        %input.headerUpper__form__field{:placeholder => "キーワードから探す"}
         %button.headerUpper__form__btn
           %img.headerUpper__form__btn__icon{:alt => "search_icon", :src => "assets/icon/icon-search 1.png", :title => "search_icon"}
+    /      
+      = form_for "#" do |form|
+        .headerUpper__form
+          = form.text_field :content, class:'headerUpper__form__field', placeholder:"キーワードから探す"
+          = form.submit ' ', class: 'headerUpper__form__btn'
+
     .headerLower
       .headerLower__left
         %a{:href => "#"} カテゴリー
