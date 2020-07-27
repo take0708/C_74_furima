@@ -1,0 +1,16 @@
+.container
+  .containerBox
+    .downSide
+      .categpriesTitle
+        %h1 
+          = "#{@category.name}の商品一覧"
+
+        %ul.listBox
+          %li
+            - @category_display.each do |category|
+              = link_to category.name, category_path(category)
+
+      .productsBox
+        .puroduct
+          
+            

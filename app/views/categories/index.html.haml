@@ -1,28 +1,31 @@
 .container
-  .upSide
-  .downSide
-    .category
-      .parentIndex
-        - @parents.each do |parent|
-          = link_to parent.name
+  .containerBox
+    .upSide
+    .downSide
+      .category
+        .parentIndex
+          - @parents.each do |parent|
+            = link_to "#{parent.name}"
 
-    .categoryTitle
-      .categoryTitle__parents
-        - @parents.each do |parent|
-          .categoryTitle__parent
-            = link_to parent.name, class: "parentLink"
+      .categoryTitle
+        .categoryTitle__parents
+          - @parents.each do |parent|
+            .categoryTitle__parent
+              = link_to parent.name, category_path(parent), class: "parentLink"
           
-          .categoryContents
-            - parent.children.each do |child|
-              .categoryContent
-                = link_to child.name, class: "childLink"  
+            .categoryContents
+              - parent.children.each do |child|
+                .categoryContent
+                  = link_to child.name, category_path(child), class: "childLink"
                 
-                .categoryItems
-                  - child.children.each do |grandchild|
-                    .categoryItem
-                      = link_to grandchild.name, class: "grandchildreLink"
-          .upBottom トップページへ
-          .marginSpace
+                  .categoryItems
+                    - child.children.each do |grandchild|
+                      .categoryItem
+                        = link_to grandchild.name, category_path(grandchild), class: "grandchildreLink"
+            
+            .upBottom トップページへ
+              = link_to "トップページへ", 
+            .marginSpace
 
           
           
