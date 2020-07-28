@@ -4,21 +4,6 @@
 |nickname|string|null: false|
 |email|string|null: false, unique: true|
 |encrypted_password|string|null: false|
-
-### Association
-- has_one :user_detail, dependent: :destroy
-- has_one :shipping_info, dependent: :destroy
-- has_many :todo_lists,  dependent: :destroy
-- has_one :creditcard, dependent: :destroy
-- has_many :comments,  dependent: :destroy
-- has_many :favorites,  dependent: :destroy
-- has_many :evaluations,  dependent: :destroy
-- has_many :seller_items, foreign_key: “seller_id”, class_name: “items”
-- has_many :buyer_items, foreign_key: “buyer_id”, class_name: “items”
-
-## user_detailsテーブル
-|Column|Type|Options|
-|------|----|-------|
 |family_name|string|null: false|
 |first_name|string|null: false, unique: true|
 |family_name_kana|string|null: false|
@@ -28,10 +13,16 @@
 |birth_day|integer|null: false|
 |introduction|text||
 |icon|string||
-|user_id|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :user
+- has_one :shipping_info, dependent: :destroy
+- has_many :todo_lists,  dependent: :destroy
+- has_one :creditcard, dependent: :destroy
+- has_many :comments,  dependent: :destroy
+- has_many :favorites,  dependent: :destroy
+- has_many :evaluations,  dependent: :destroy
+- has_many :seller_items, foreign_key: “seller_id”, class_name: “items”
+- has_many :buyer_items, foreign_key: “buyer_id”, class_name: “items”
 
 ## shipping_infosテーブル
 |Column|Type|Options|
