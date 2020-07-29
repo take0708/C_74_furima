@@ -36,7 +36,7 @@
 |city|string|null: false|
 |house_number|string|null: false|
 |building|string|null: false|
-|phone_number|integer|null: false|
+|home_call_num|integer||
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
