@@ -9,9 +9,9 @@ class CreateShippingInfos < ActiveRecord::Migration[5.2]
       t.integer :prefecture,      null: false
       t.string :city,             null: false
       t.string :house_number,     null: false
-      t.string :building,         null: false
-      t.integer :home_call_num, 
-      t.references :user_id,      null: false, foreign_key: true
+      t.string :building
+      t.integer :home_call_num
+      t.references :user,         null: false, foreign_key: true
       t.timestamps
     end
   end
