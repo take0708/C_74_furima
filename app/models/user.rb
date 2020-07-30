@@ -6,7 +6,7 @@ class User < ApplicationRecord
   
   validates :nickname, presence: true, length: {maximum: 20}
   # ↓正規表現で@とドメインを必須にする(複雑そうなので後回し)
-  validates :email, presence: true, uniquness:true
+  validates :email, presence: true
   validates :password, presence: true, length: {minimum: 7}
   validates :password_confirmation, presence: true, length: {minimum: 7}
   # ↓正規表現で全角のバリデーションをかける(複雑そうなので後回し)
@@ -15,9 +15,8 @@ class User < ApplicationRecord
   validates :family_name_kana, :first_name_kana, presence: true
   validates :birth_year, :birth_month, :birth_day, presence: true
 
-  
 
-  # has_one :shipping_info, dependent: :destroy
+  has_one :shipping_info, dependent: :destroy
   # has_many :todo_lists, ependent: :destroy
   # has_one :creditcard, dependent: :destroy
   # has_many :comments, dependent: :destroy
