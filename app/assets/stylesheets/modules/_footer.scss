@@ -1,5 +1,7 @@
+
+
 .footer{
-  color: #ffffff;
+  color: $main-wh;
   height: 355px;
   background-color: #272727;
   padding: 60px 0;
@@ -20,17 +22,17 @@
       &__contents{
         height: 32px;
         &__link{
-          color: #ffffff;
+          color: $main-wh;
           font-size: 12px;
         }
       }
     }
   }
-  &__logo{
+  &__logo__img{
     width: 160px;
     height: 46.34px;
-    display: block;
     margin: 0 auto;
+    
   }
   &__signature{
     width: 200px;
