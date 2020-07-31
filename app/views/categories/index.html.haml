@@ -17,15 +17,13 @@
               .categoryContent
                 = link_to child.name, class: "childLink"  
                 
-                .categoryItems
-                  - child.children.each do |grandchild|
-                    .categoryItem
-                      = link_to grandchild.name, class: "grandchildreLink"
-          .upBottom トップページへ
-          .marginSpace
+                  .category--title__childs__child__glandchilds
+                    - child.children.each do |grandchild|
+                      .category--title__childs__child__glandchilds__glandchild
+                        = link_to grandchild.name, category_path(grandchild), class: "grandchildreLink"
+            
+              .upBottom
+                = link_to categories_path, class: "up_btn" do
+                  %i.fa.fa-arrow-up 
+                  ページトップへ
 
-          
-          
-      
-                  
-                    
