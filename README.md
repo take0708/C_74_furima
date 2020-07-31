@@ -5,7 +5,7 @@
 |email|string|null: false, unique: true|
 |encrypted_password|string|null: false|
 |family_name|string|null: false|
-|first_name|string|null: false, unique: true|
+|first_name|string|null: false|
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
 |birth_year|integer|null: false|
@@ -35,8 +35,8 @@
 |prefecture|integer|null: false|
 |city|string|null: false|
 |house_number|string|null: false|
-|building|string|null: false|
-|phone_number|integer|null: false|
+|building|string||
+|home_call_num|integer||
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
