@@ -49,6 +49,7 @@ group :development, :test do
   gem 'carrierwave'
   gem 'mini_magick'
   gem 'jquery-rails'
+  gem 'fog-aws'
 end
 
 group :development do
@@ -77,3 +78,5 @@ end
 
 gem 'haml-rails'
 gem 'ancestry'
+gem 'font-awesome-sass'
+gem 'devise'

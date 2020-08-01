@@ -1,0 +1,70 @@
+header{
+  height: 107.55px;
+  width: 100%;
+  background-color: white;
+}
+
+.headerUpper{
+  height: 50.55px;
+  width: calc(100% - 120px);
+  margin: 0 60px 11px 60px;
+  display: flex;
+  padding: 20px 0 0 0;
+  &__link{
+    &__logo{
+      height: 40.55px;
+      width: 140px;
+      margin-bottom: 10px;
+    }
+  }
+  & form{
+    width: calc(100% - 40.55px - 30px);
+    margin: 0 0 5px 30px;
+    height: 36px;
+    display: flex;
+  }
+  &__form{
+    &__field{
+      height: 36px;
+      width: calc(100% - 35.72px);
+      padding-left: 5px;
+    }
+    &__btn{
+      width: 35.72px;
+      height: 36px;
+      padding: 8px 8.14px;
+      border-style: none;
+      background-color: #3ccace;
+      cursor: pointer;
+      &:hover{
+        opacity: 0.9;
+      }
+      &__icon{
+        width: 19.72px;
+        height: 19.72px;
+      }
+    }
+  }
+}
+
+.headerLower{
+  width: calc(100% - 120px);
+  height: 32px;
+  font-size: 14px;
+  margin: 22px 60px 0px 60px;
+  display: flex;
+  justify-content: space-between;
+  &__left{
+    & a{
+      margin-right: 40px;
+    }
+    & a:hover{
+      color: #ffb340;
+    }
+  }  
+  &__right{
+    & a{
+      margin-left: 16px;
+    }
+  } 
+}

@@ -1,0 +1,24 @@
+.exhibitionBtn{
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 120px;
+  height: 116px;
+  border-radius: 4%;
+  background-color: $main-bu;
+  text-align: center;
+  &:hover{
+    opacity: 0.9;
+  }
+  &__icon{
+    width: 54px;
+    height: 54px;
+  }
+  &__text{
+    width: 90px;
+    height: 27px;
+    color: $main-wh;
+    font-size: 18px;
+    margin: 15px auto 5px auto;
+  }
+}

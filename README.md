@@ -3,10 +3,18 @@
 |------|----|-------|
 |nickname|string|null: false|
 |email|string|null: false, unique: true|
-|password|string|null: false|
+|encrypted_password|string|null: false|
+|family_name|string|null: false|
+|first_name|string|null: false|
+|family_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|birth_year|integer|null: false|
+|birth_month|integer|null: false|
+|birth_day|integer|null: false|
+|introduction|text||
+|icon|string||
 
 ### Association
-- has_one :user_detail, dependent: :destroy
 - has_one :shipping_info, dependent: :destroy
 - has_many :todo_lists,  dependent: :destroy
 - has_one :creditcard, dependent: :destroy
@@ -15,23 +23,6 @@
 - has_many :evaluations,  dependent: :destroy
 - has_many :seller_items, foreign_key: “seller_id”, class_name: “items”
 - has_many :buyer_items, foreign_key: “buyer_id”, class_name: “items”
-
-## user_detailsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|family_name|string|null: false|
-|first_name|string|null: false, unique: true|
-|family_name_kana|string|null: false|
-|first_name_kana|string|null: false|
-|birth_year|integer|null: false|
-|birth_month|integer|null: false|
-|birth_day|integer|null: false|
-|introduce|text||
-|icon|string||
-|user_id|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :user
 
 ## shipping_infosテーブル
 |Column|Type|Options|
@@ -44,8 +35,8 @@
 |prefecture|integer|null: false|
 |city|string|null: false|
 |house_number|string|null: false|
-|building|string|null: false|
-|phone_number|integer|null: false|
+|building|string||
+|home_call_num|integer||
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
@@ -64,8 +55,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|costomer_id|integer|null: false|
-|card_id|integer|null: false|
+|costomer_id|string|null: false|
+|card_id|string|null: false|
 
 ### Association
 - belongs_to user
@@ -157,7 +148,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |category|string|null: false|
-|anecetry|string|null: false|
+|anecetry|string||
 
 ### Association
 - has_many :items
