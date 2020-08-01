@@ -55,8 +55,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|costomer_id|integer|null: false|
-|card_id|integer|null: false|
+|costomer_id|string|null: false|
+|card_id|string|null: false|
 
 ### Association
 - belongs_to user
@@ -148,7 +148,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |category|string|null: false|
-|anecetry|string|null: false|
+|anecetry|string||
 
 ### Association
 - has_many :items

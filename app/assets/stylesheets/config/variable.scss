@@ -1,0 +1,12 @@
+@mixin wh-shasow{
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(0,0,0,0.4);
+}
+
+@mixin badge{
+  width: 180px;
+  height: 53.33px;
+  &:hover{
+    opacity: 0.5;
+  }
+}
