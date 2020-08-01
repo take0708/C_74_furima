@@ -1,16 +1,18 @@
+@import "config/color";
+@import "config/variable";
+
 a{
-  color: #333333;
+  color: $link-gr;
   text-decoration: none;
 }
 
-li {
+li{
   list-style: none;
 }
 
 *{
   box-sizing: border-box;
 }
-
 
 .main__topDl{
   width: 100%;
@@ -23,26 +25,23 @@ li {
   flex-direction: column;
   &__title{
     height: 179px;
-    color: #ffffff;
-    font-size: 56px;
-    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    @include wh-shasow;
+    font-size: 60px;
     padding-top: 95px;
     margin: auto 0 0 60px;
   }
   &__present{
-    color: #ffffff;
-    font-size: 16px;
-    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    @include wh-shasow;
+    font-size: 18px;
     margin: 16px 0 0 60px;
   }
   &__banner{
     display: flex;
     margin: 34px 0 auto 60px;
     &__link{
-      margin-right: 8px;
+      margin-right: 10px;
       &__badge{
-        width: 180px;
-        height: 53.33px;
+        @include badge;
       }
     }
   }
@@ -50,12 +49,11 @@ li {
 
 .main__reason{
   width: 100%;
-  height: 660px;
   padding: 0 20px;
   align-items: center;
   &__title{
-    width: 100%;
     height: 20px;
+    width: 100%;
     padding-top: 40px;
     text-align: center;
     &__text{
@@ -63,13 +61,12 @@ li {
       font-size: 26px;
       font-weight: bold;
       margin-bottom: 10px;
-
     }
     &__bar{
       width: 70px;
       height: 4px;
       margin: 0 auto 30px auto;
-      border-top: solid 4px #3ccace;
+      border-top: solid 4px $main-bu;
     }
   }
   &__lists{
@@ -87,11 +84,11 @@ li {
       &__number{
         width: 56.69px;
         height: 55px;
-        color: #ffffff;
+        color: $main-wh;
         font-size: 30px;
         text-align: center;
         line-height: 55px;
-        background-color: #3ccace; 
+        background-color: $main-bu; 
         position: absolute; 
         top: 0;
         left: 0;
@@ -106,7 +103,7 @@ li {
         text-align: center;
         margin-top: 26px;
         &--mainColor{
-          color: #3ccace;
+          color: $main-bu;
         }
       }
       &__description{
@@ -116,9 +113,8 @@ li {
       }
     }
     &__list-center{
-      width: 30%;
+      @extend .main__reason__lists__list;
       margin: 16px 5% 0 5%;
-      position: relative;
     }
   }
 }
@@ -133,26 +129,26 @@ li {
   flex-direction: column;
   &__title{
     width: 1040px;
-    color: #ffffff;
+    @include wh-shasow;
     font-size: 27px;
     font-weight: bold;
-    text-shadow: 0 0 5px rgba(0,0,0,0.4);
     margin: auto auto 0 auto;
   }
   &__present{
     width: 1040px;
-    color: #ffffff;
+    @include wh-shasow;
     font-size: 18px;
-    text-shadow: 0 0 5px rgba(0,0,0,0.4);
     margin: 20px auto 0 auto;
   }
   &__banner{
     width: 1040px;
     margin: 30px auto auto auto;
-    &__badge{
-      width: 180px;
-      height: 53.33px;
-      margin-right: 5px;
+    display: flex;
+    &__link{
+      &__badge{
+        @include badge;
+        margin-right: 10px;
+      }
     }
   }
 }
@@ -163,10 +159,9 @@ li {
   align-items: center;
   &__title{
     width: 100%;
-    padding-top: 40px;
     text-align: center;
     &__text{
-      color: #000000;
+      color: $bk;
       font-size: 26px;
       font-weight: bold;
       margin-bottom: 10px;
@@ -175,7 +170,7 @@ li {
       width: 70px;
       height: 4px;
       margin: 0 auto 30px auto;
-      border-top: solid 4px #3ccace;
+      border-top: solid 4px $main-bu;
     }
   }
   &__lists{
@@ -211,7 +206,7 @@ li {
 .main__pickupCategory{
   width: 100%;
   height: 427px;
-  background-color: #f8f8f8;
+  background-color: $bg-wh;
   display: flex;
   flex-direction: column;
   &__title{
@@ -222,7 +217,7 @@ li {
     line-height: 36px;
     margin-top: auto;
   }
-  &__newItem{
+  &__newItem a{
     height: 36px;
     color: #3ccace;
     font-size: 24px;
@@ -239,7 +234,7 @@ li {
     &__list{
       width: 220px;
       height: 245px;
-      background-color: #ffffff;
+      background-color: $main-wh;
       &__details{
         &__img{
           width: 220px;
@@ -259,8 +254,6 @@ li {
           display: inline-block;
         }
         &__favo{
-          width: 36px;
-          height: 24px;
           font-size: 16px;
           margin-right: 16px;
           display: inline;
@@ -270,6 +263,9 @@ li {
           font-size: 10px;
           margin: 0 16px 16px 16px;
         }
+        &:hover{
+          opacity: 0.5;
+        }
       }
     }
   }
@@ -278,7 +274,7 @@ li {
 .main__pickupBrand{
   width: 100%;
   height: 532px;
-  background-color: #f8f8f8;
+  background-color: $bg-wh;
   display: flex;
   flex-direction: column;
   padding-top: 25px;
@@ -290,9 +286,9 @@ li {
     line-height: 36px;
     margin-top: auto;
   }
-  &__newItem{
+  &__archive a{
     height: 36px;
-    color: #3ccace;
+    color: $main-bu;
     font-size: 24px;
     font-weight: bold;
     text-align: center;
@@ -307,7 +303,7 @@ li {
     &__list{
       width: 220px;
       height: 245px;
-      background-color: #ffffff;
+      background-color: $main-wh;
       &__details{
         &__img{
           width: 220px;
@@ -327,8 +323,6 @@ li {
           display: inline-block;
         }
         &__favo{
-          width: 36px;
-          height: 24px;
           font-size: 16px;
           margin-right: 16px;
           display: inline;
@@ -337,6 +331,9 @@ li {
           height: 16px;
           font-size: 10px;
           margin: 0 16px 16px 16px;
+        }
+        &:hover{
+          opacity: 0.5;
         }
       }
     }
@@ -354,28 +351,25 @@ li {
   &__title{
     height: 33px;
     font-size: 24px;
-    color: #ffffff;
+    @include wh-shasow;
     text-align: center;
-    text-shadow: 0 0 5px rgba(0,0,0,0.4);
     margin: auto auto 0 auto;
   }
   &__present{
     height: 53px;
     font-size: 35px;
-    color: #ffffff;
+    @include wh-shasow;
     text-align: center;
-    text-shadow: 0 0 5px rgba(0,0,0,0.4);
     margin: 0 auto;
   }
   &__banner{
     width: 370px;
     display: flex;
-    justify-content: space-between;
     margin: 20px auto auto auto;
     &__link{
+      margin: 0 5px;
       &__badge{
-        width: 180px;
-        height: 53.33px;
+          @include badge;
       }
     }
   }
