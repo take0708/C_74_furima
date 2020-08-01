@@ -5,7 +5,7 @@
     = f.label :"ニックネーム"
     %span 必須
     %br/
-    = f.email_field :nickname, placeholder: '例）フリマ太郎'
+    = f.text_field :nickname, placeholder: '例）フリマ太郎'
   .field
     = f.label :"メールアドレス"
     %span 必須
@@ -28,24 +28,25 @@
     %br/
     = f.password_field :password_confirmation, placeholder: 'パスワードをもう一度入力してください' 
   本人確認
+  %br/
   安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
   .field
     = f.label :"お名前(全角)"
     %span 必須
     %br/
-    = f.password_field :family_name, placeholder: '例）山田'
+    = f.text_field :family_name, placeholder: '例）山田'
   .field
     = f.label :"お名前(全角)"
     %br/
-    = f.password_field :first_name, placeholder: '例）彩'
+    = f.text_field :first_name, placeholder: '例）彩'
   .field
     = f.label :"お名前カナ(全角)"
     %br/
-    = f.password_field :family_name_kana, placeholder: '例）ヤマダ'
+    = f.text_field :family_name_kana, placeholder: '例）ヤマダ'
   .field
     = f.label :"お名前カナ(全角)"
     %br/
-    = f.password_field :first_name_kana, placeholder: '例）アヤ'
+    = f.text_field :first_name_kana, placeholder: '例）アヤ'
   .field
     = f.select :birth_year, [*1900..2019].reverse, prompt: "--"
     = f.select :birth_month, [*1..12], prompt: "--"
