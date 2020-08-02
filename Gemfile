@@ -46,6 +46,10 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
+  gem 'carrierwave'
+  gem 'mini_magick'
+  gem 'jquery-rails'
+  gem 'fog-aws'
 end
 
 group :development do
