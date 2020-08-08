@@ -48,7 +48,6 @@ group :development, :test do
   gem 'capistrano-rails-console'
   gem 'carrierwave'
   gem 'mini_magick'
-  gem 'jquery-rails'
   gem 'fog-aws'
 end
 
@@ -80,3 +79,6 @@ gem 'haml-rails'
 gem 'ancestry'
 gem 'font-awesome-sass'
 gem 'devise'
+gem 'jquery-rails'
+gem 'enum_help'
+gem 'active_hash', '~> 2.3.0'

@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :set_item, except: [:index, :new, :create]
+
   def index
     @items = Item.includes(:item_imgs).order('created_at DESC')
   end
@@ -29,6 +31,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item.destroy
+    redirect_to root_path
   end
 end
 
@@ -49,7 +53,7 @@ def item_params
     :item_size_id,
     :seller_id,
     :buyer_id,
-    item_imgs_attributes: [:image])
+    item_imgs_attributes: [:image, :_destroy, :id])
 end
 
 def set_item
