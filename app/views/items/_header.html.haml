@@ -17,7 +17,7 @@
     .headerLower__right
       =link_to  "#" do
         マイページ
-      =link_to "#" do
+      =link_to destroy_user_session_path, method: :delete do
         ログアウト
   - else 
     .headerLower__right
