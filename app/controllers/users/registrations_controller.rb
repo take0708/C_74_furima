@@ -28,6 +28,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_address #登録2ページ目に遷移
   end
 
+  
+
   def create_address
     @user = User.new(session["devise.regist_data"]["user"])
     @address = ShippingInfo.new(shipping_info_params)
@@ -36,10 +38,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render :new_address and return
     end
     @user.build_shipping_info(@address.attributes) # build_shipping_infoを用いて送られてきたparamsを、保持していたsessionが含まれる@userに代入。そしてsaveメソッドを用いてテーブルに保存。
-    @user.save
+    @user.save!
     session["devise.regist_data"]["user"].clear # clearメソッドを用いて明示的にsessionを削除。
     sign_in(:user, @user) # ユーザーの新規登録ができても、ログインができているわけではない。それをsign_inメソッドを利用してログイン作業を行う。
 
+  end
+
+  protected
+
+  
+  def shipping_info_params
+    params.require(:shipping_info).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :postcode, :prefecture, :city, :house_number, :building, :home_call_num)
   end
 
   # GET /resource/edit
@@ -87,9 +96,5 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-  protected
 
-  def shipping_info_params
-    params.require(:shipping_info).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :postcode, :prefecture, :city, :house_number, :building, :home_call_num)
-  end
 end
