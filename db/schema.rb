@@ -32,7 +32,11 @@ ActiveRecord::Schema.define(version: 2020_07_29_064926) do
     t.text "item_explanation", null: false
     t.integer "price", null: false
     t.integer "dealing", limit: 1, default: 0, null: false
-    t.integer "shipping_area", limit: 1, default: 0, null: false
+    t.integer "shippingarea_id"
+    t.integer "shippingcost_id"
+    t.integer "itemcondition_id"
+    t.integer "shippingmethod_id"
+    t.integer "shippingday_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

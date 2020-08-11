@@ -2,7 +2,15 @@
   商品名<%= f.text_field :name %><br>
   商品説明<%= f.text_field :item_explanation%>
   発送元地域
-  <%= f.select :shipping_area, Item.shipping_areas.keys, {}, {class: 'Item'}%>
+  <%= f.collection_select :shippingarea_id, Shippingarea.all, :id, :name %>
+  商品状態
+  <%= f.collection_select :itemcondition_id, Itemcondition.all, :id, :name %>
+  配送料の負担
+  <%= f.collection_select :shippingcost_id, Shippingcost.all, :id, :name %>
+  発送までの日数
+  <%= f.collection_select :shippingday_id, Shippingday.all, :id, :name %>
+  配送方法
+  <%= f.collection_select :shippingmethod_id, Shippingmethod.all, :id, :name %>
   価格<%= f.number_field :price %><br>
   <div id="image-box">
     <div id="previews">

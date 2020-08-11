@@ -5,13 +5,13 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.text :item_explanation, null: false
       t.integer :price, null: false
       t.integer :dealing,default: 0, null: false, limit: 1
-      t.integer :shipping_area, default: 0, null: false, limit: 1
+      t.integer :shippingarea_id
       #t.references :brand, null: false, foreign_key: true
       #t.references :category, null: false, foreign_key: true
-      t.references :item_condition, null: false, foreign_key: true
-      #t.references :shipping_method, null: false, foreign_key: true
-      #t.references :shipping_cost, null: false, foreign_key: true
-      #t.references :shipping_day, null: false, foreign_key: true
+      t.integer :shippingcost_id
+      t.integer :itemcondition_id
+      t.integer :shippingmethod_id
+      t.integer :shippingday_id
       #t.references :item_size, null: false, foreign_key: true
       #t.references :seller, null: false, foreign_key: true
       #t.references :buyer, null: false, foreign_key: true
