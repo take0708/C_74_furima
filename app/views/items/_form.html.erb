@@ -1,16 +1,20 @@
 <%= form_for @item do |f| %>
+  カテゴリー
+  <%= f.collection_select :category, Category.all, :id, :name %><br>
+  ブランド
+  <%= f.collection_select :brand, Brand.all, :id, :name %><br>
   商品名<%= f.text_field :name %><br>
-  商品説明<%= f.text_field :item_explanation%>
+  商品説明<%= f.text_field :item_explanation%><br>
   発送元地域
-  <%= f.collection_select :shippingarea_id, Shippingarea.all, :id, :name %>
+  <%= f.collection_select :shippingarea_id, Shippingarea.all, :id, :name %><br>
   商品状態
-  <%= f.collection_select :itemcondition_id, Itemcondition.all, :id, :name %>
+  <%= f.collection_select :itemcondition_id, Itemcondition.all, :id, :name %><br>
   配送料の負担
-  <%= f.collection_select :shippingcost_id, Shippingcost.all, :id, :name %>
+  <%= f.collection_select :shippingcost_id, Shippingcost.all, :id, :name %><br>
   発送までの日数
-  <%= f.collection_select :shippingday_id, Shippingday.all, :id, :name %>
+  <%= f.collection_select :shippingday_id, Shippingday.all, :id, :name %><br>
   配送方法
-  <%= f.collection_select :shippingmethod_id, Shippingmethod.all, :id, :name %>
+  <%= f.collection_select :shippingmethod_id, Shippingmethod.all, :id, :name %><br>
   価格<%= f.number_field :price %><br>
   <div id="image-box">
     <div id="previews">

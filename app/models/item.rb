@@ -14,8 +14,8 @@ class Item < ApplicationRecord
   #has_many :comments, dependent: :destroy
   #has_many :favorites, dependent: :destroy
   #has_many :evaluations
-  #belong_to :brands
-  #belong_to :categories
+  belongs_to :brand
+  belongs_to :category
   #belong_to_active_hash :item_size
   #belong_to :seller, class_name: "user"
   #belong_to :buyer, class_name: "user"
