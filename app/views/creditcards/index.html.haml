@@ -1,0 +1,23 @@
+.main
+  .main__box
+    %section.header-title
+      %h1 支払い方法
+    .main__box__content
+      %section.creditcard-section
+        %h2 クレジットカード
+      
+      - if @card.present?
+        .container
+          .container__info
+            = link_to "creditcards/#{@card_image}", width: "34", height: "20"
+          %p
+            = "**** **** ****" + @card_infomation.last4
+          %p
+            = @exp_month + "/" + @exp_year
+            = button_to "削除する", creditcard_path(@card), method: :delete, class: "creditcard__info__delete"
+      
+      - else
+        .create-card
+          = link_to "クレジットカードを追加する", new_creditcard_path, class: "create-card-btn" 
+              
+            

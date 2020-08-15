@@ -1,49 +1,5 @@
 .main
   .main__box
-    = render partial: "header"
-    .main__box__left
-      .main__box__left__contents
-        .main__box__left__contents__title
-          %h1 クレジットカード情報入力
-        = form_with url: creditcards_path, mehod: :post, class: "cardForm", html: { name: "inputForm" }, local: true do |f|
-          .form
-            .form__contents
-              .form__contents__content
-                .form__contents__content__left
-                  = f.label :"カード番号"
-                  %p 必須
-                .form__contents__content__right 
-                  = f.text_field :cardNumber, placeholder: "半角英数のみ", class: "cardNamber"
-                = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?238737266",width:"49px",height:"20px"
-                = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?238737266",width:"34px",height:"20px"
-                = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?238737266",width:"30px",height:"20px"
-                = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?238737266",width:"32px",height:"20px"
-                = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?238737266",width:"21px",height:"20px"
-                = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?238737266",width:"32px",height:"20px"
-                = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?238737266",width:"32px",height:"20px"
-                
-                .form__contents__content__left
-                  = f.label :"有効期限"
-                  %p 必須
-                .form__contents__content__right 
-                  = f.select :expMonth, options_for_select(["--", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]), class: "expMonth"
-                  %p 月
-                  = f.select :expYear, options_for_select(["--", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"]), class: "expYear"
-                  %p 年
-
-
-                .form__contents__content__left
-                  = f.label :"セキュリティーコード"
-                  %p 必須
-                .form__contents__content__right 
-                  = f.text_field :cvc, placeholder: "カード背面4桁もしくは3桁の番号", class: "cvc"
-                .form__contents__content__back
-                  .form__contents__content__back__item
-                    = link_to do
-                      %p ?
-                      カード裏面の番号とは？
-                
-                = f.submit :"登録する", class: "submitToken"
-                = link_to "戻る"
-                
-    = render partial: "footer"
+    = render partial: "header_creditcards"
+    = render partial: "creditcards/new_inner/creditcards_new_mypageMain"
+    = render partial: "footer_creditcards"

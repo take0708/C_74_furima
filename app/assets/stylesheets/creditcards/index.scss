@@ -1,0 +1,60 @@
+.main { 
+  &__box {
+    background-color: white; 
+      .header-title {
+        height: 99px;
+        width: 700px;
+        line-height: 99px;
+        text-align: center;
+        font-size: 24px;
+        font-weight: 600;
+        margin: 0 auto;
+        border-top:solid 1px #f3f3f3;
+        border-bottom:solid 1px #f3f3f3;
+      }
+      &__content {
+        
+        
+        .creditcard-section {
+          line-height: 133px;
+          margin: 0 0 0 520px;
+          height: 133px;
+          width: 375px;
+          h2 {
+            font-size: 15px;
+            font-weight: 600;
+          }
+        }
+
+          .container {
+            &__info {
+              &__delete {
+    
+              }
+            }
+          }
+          .create-card {
+            text-align: center;
+            margin: 0 auto;
+            height: 96px;
+            width: 400px;
+            font-size: 17px;
+            border-bottom: solid 1px #f3f3f3;
+
+            &__link {
+              
+            }
+
+            .create-card-btn {
+              height: 48px;
+              width: 375px;
+              background-color: $main-bu;
+              border-radius: 5px;
+              line-height: 48px;
+              color: white;
+              display: block;
+            }
+          }  
+    }
+  } 
+}
