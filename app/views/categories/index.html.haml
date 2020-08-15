@@ -1,3 +1,5 @@
+.header
+  = render partial: "items/header"
 .container
   .container__box
     .container__box__up--contents
@@ -29,3 +31,8 @@
                 = link_to categories_path, class: "up_btn" do
                   %i.fa.fa-arrow-up 
                   ページトップへ
+%section.main__btmDl
+  = render "items/btmDl"
+.footer
+  = render partial: "items/footer"
+= render partial: "items/exhibitionBtn"

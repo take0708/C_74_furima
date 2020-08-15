@@ -50,6 +50,8 @@ group :development, :test do
   gem 'mini_magick'
   gem 'jquery-rails'
   gem 'fog-aws'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -81,3 +83,5 @@ gem 'ancestry'
 gem 'font-awesome-sass'
 gem 'devise'
 gem 'payjp'
+gem 'faker'
+gem 'rails-i18n', '~> 5.1' 
