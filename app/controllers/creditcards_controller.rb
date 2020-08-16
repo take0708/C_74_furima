@@ -2,6 +2,7 @@ class CreditcardsController < ApplicationController
   require "payjp"
   
   before_action :set_item, only:[:show, :pay]
+  before_action :card_present,only:[:index,:destroy]
   before_action :take_card, only:[:show, :pay]
   before_action :set_api_key
 
@@ -11,17 +12,19 @@ class CreditcardsController < ApplicationController
       set_card_infomation
     end
   end
-  
+
   def new
   end
+  
 
   def create
+    Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_PRIVATE_KEY]
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
       user_id = current_user.id
       customer = Payjp::Customer.create(card: params['payjp-token'])
-      @card = Creditcards.new(user_id: user_id, customer_id: customer.id, card_id: customer.default_card)
+      @card = Creditcard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         flash[:notice] = 'カード情報を登録しました'
         redirect_to "/"
@@ -40,21 +43,16 @@ class CreditcardsController < ApplicationController
       set_customer
       set_card_infomation
     end
-
-    if current_user.address == nil
-      flash[:alert] = '住所を登録したください'
-      redirect_to new_address_path
-    end
   end
 
   def destroy
     set_customer
     @customer.delete
     if @card.destroy
-      flash[:notice2] = '削除しました'
+      flash[:notice] = '削除しました'
       redirect_to action: "index"
     else
-      flash[:alert2] = '削除できませんでした'
+      flash[:alert] = '削除できませんでした'
       redirect_to action: "index"
     end
   end
@@ -76,22 +74,23 @@ class CreditcardsController < ApplicationController
   end
   
   def set_item
-    @item = Item.find(params[:id])
-    @address = Address.find_by(user_id: current_user.id)
+   # @item = Item.find(params[:id])
+   # @address = Address.find_by(user_id: current_user.id)
+  end
+
+  def card_present
+    @card = Creditcard.where(user_id: current_user.id).first if Creditcard.where(user_id: current_user.id).present?
   end
 
   def set_customer
-    @customer = Payjp::Customer.retrive(@cars.customer_id)
+    @customer = Payjp::Customer.retrieve(@card.customer_id)
   end
 
   def set_card_infomation
-    @card_infomation = @customer.cards.retrive(@card.card_id)
+    @card_infomation = @customer.cards.retrieve(@card.card_id)
   end
 
   def take_card
     @card = Creditcard.find_by(user_id: current_user.id)
   end
-
-
-
 end

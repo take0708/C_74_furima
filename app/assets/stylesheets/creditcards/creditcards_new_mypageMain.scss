@@ -44,7 +44,7 @@
             &__right {
               display: flex;
               padding-top: 4px;
-              .cardNamber {
+              #card_number {
                 height: 48px;
                 width: 375px;
                 text-indent: 20px;
@@ -53,7 +53,7 @@
                 margin-bottom: 6px;
               }
         
-              #expMonth {
+              #exp_month {
                 height: 48px;
                 width: 150px;
                 font-size: 16px;
@@ -71,7 +71,7 @@
                 
               }
               
-              #expYear {
+              #exp_year {
                 height: 48px;
                 width: 150px;
                 font-size: 16px;
@@ -95,7 +95,7 @@
                 text-align: center;
               }
 
-              .cvc {
+              #cvc {
                 height: 48px;
                 width: 375px;
                 text-indent: 20px;
@@ -126,7 +126,7 @@
               }
             }
 
-            .submitToken {
+            #token_submit {
               min-height: 48px;
               width: 100%;
               font-size: 17px;
@@ -138,7 +138,7 @@
               margin-top: 32px;
               cursor: pointer;
             }
-            .submitToken:hover {
+            .token_submit:hover {
               background-color: #34aeb3;
             } 
             .return-btn {
