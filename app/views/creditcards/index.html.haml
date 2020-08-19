@@ -10,7 +10,7 @@
         = form_with url: "/creditcards/new", method: :delete, local: true do |f|
           .container
             .container__info
-              = link_to image_tag "/assets/icon/icon_brand.png", width: "34", height: "20"
+              = image_tag "#{@card_image}", width: "34", height: "20", alt: "creditcard"
               %p 番号
               = "**** **** " + @card_infomation.last4
               %p 有効期限

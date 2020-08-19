@@ -10,6 +10,25 @@ class CreditcardsController < ApplicationController
     if @card
       set_customer
       set_card_infomation
+      @card_info = set_card_infomation
+      @card_brand = @card_info.brand
+      #画像を保存して使用した方がいいのか？
+      case @card_brand
+      when "Visa"
+        @card_image = "https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?238737266"
+      when "MasterCard"
+        @card_image = "https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?238737266"
+      when "Saison" 
+        @card_image = "https://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?238737266"
+      when "JCB"
+        @card_image = "https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?238737266"
+      when "American Express"
+        @card_image = "https://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?238737266"
+      when "Diners Club"
+        @card_image = "https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?238737266"
+      when "Discover"
+        @card_image = "https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?238737266"
+      end
     end
   end
 
@@ -60,7 +79,7 @@ class CreditcardsController < ApplicationController
   def pay
     @item.update(buyer_id: current_user.id)
     Payjp::Charge.create(
-      amount: @item.price,
+      amount: 1000,
       customer: @card.customer_id,
       currency: 'jpy'
     )

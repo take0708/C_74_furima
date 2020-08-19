@@ -26,9 +26,8 @@ document.addEventListener (
             alert("カード情報が正しくありません");
           }
         });
-    
-        });
-      }
+      });
+    }
   },
   false
 );
