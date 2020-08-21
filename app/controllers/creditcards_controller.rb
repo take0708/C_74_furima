@@ -4,14 +4,14 @@ class CreditcardsController < ApplicationController
   before_action :set_item, only:[:show, :pay]
   before_action :card_present,only:[:index,:destroy]
   before_action :take_card, only:[:show, :pay]
+  before_action :set_customer, only:[:destroy]
   before_action :set_api_key
 
   def index
     if @card
       set_customer
       set_card_infomation
-      @card_info = set_card_infomation
-      @card_brand = @card_info.brand
+      @card_brand = @card_infomation.brand
       #画像を保存して使用した方がいいのか？
       case @card_brand
       when "Visa"
@@ -65,7 +65,6 @@ class CreditcardsController < ApplicationController
   end
 
   def destroy
-    set_customer
     @customer.delete
     if @card.destroy
       flash[:notice] = '削除しました'
