@@ -11,10 +11,11 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params) 
+    @item = Item.new(item_params)
     if @item.save
-      redirect_to root_path
+      redirect_to root_path, notice: 'Event was successfully created.'
     else
+      @item.item_imgs.new if @item.item_imgs.length == 0
       render :new
     end
   end
@@ -42,9 +43,10 @@ def item_params
   params.require(:item).permit(
     :name, 
     :item_explanation,
-    :price, :dealing,
+    :price, 
+    :dealing,
     :shippingarea_id,
-    :brand_id,
+    :brand,
     :category_id,
     :itemcondition_id,
     :shippingmethod_id,

@@ -1,8 +1,14 @@
+<ul>
+  <% # errorsに入っているエラー内容を出力する %>
+  <% @item.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+</ul>
 <%= form_for @item do |f| %>
   カテゴリー
-  <%= f.collection_select :category, Category.all, :id, :name %><br>
+  <%= f.collection_select :category_id, Category.all, :id, :name %><br>
   ブランド
-  <%= f.collection_select :brand, Brand.all, :id, :name %><br>
+  <%= f.text_field :brand %><br>
   商品名<%= f.text_field :name %><br>
   商品説明<%= f.text_field :item_explanation%><br>
   発送元地域
