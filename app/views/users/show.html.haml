@@ -47,7 +47,8 @@
         %li
           = link_to '#',class: 'side-list__item' do
             お問い合わせ
-      %h3.side-list__item--head 設定
+
+      %h3.bold 設定
       %ul.side-list
         %li
           = link_to '#',class: 'side-list__item' do
@@ -71,6 +72,18 @@
         
 
   .container__right
+    .container__right__user
+      = image_tag("/assets/icon/member_photo_noimage_thumb.png", size: '70x70', alt:'mypage-icon', class: 'container__right__user--icon')
+      %h3.container__right__user--name #{current_user.nickname}
+      .mypage-number
+        .evaluation
+          評価 &nbsp;
+          %span.evaluation__number 0&nbsp;&nbsp;
+        .exihibition
+          出品数
+          %span.exihibition__number &nbsp;0
+
+
 
 = render "items/btmDl"
 .footer
