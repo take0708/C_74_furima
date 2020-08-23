@@ -5,7 +5,7 @@ $(function() {
   tabsAry = Array.prototype.slice.call(tabs);
     // クラスの切り替えをtabSwitch関数で定義
     function tabSwitch() {
-      // 全てのactiveクラスのうち、最初の要素を削除（"[0]は、最初の要素の意味"）
+      // 全てのactiveクラスのうち、最初の要素を削除
       $(".active").removeClass("active");
   
       // クリックしたタブにactiveクラスを追加
