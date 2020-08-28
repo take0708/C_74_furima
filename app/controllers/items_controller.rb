@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: [:index, :new, :create]
+  before_action :set_item, except: [:index, :new, :create, :new]
 
   def index
     @items = Item.includes(:item_imgs).order('created_at DESC')
@@ -24,10 +24,13 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(item_params)
-      redirect_to root_path
-    else
-      render :edit
+    if product.user_id == current_user.id
+      if @item.update(item_params)
+        redirect_to root_path
+      else
+        flash[:alert] = '投稿に失敗しました'
+        render :edit
+      end
     end
   end
 
