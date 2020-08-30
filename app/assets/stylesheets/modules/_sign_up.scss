@@ -2,11 +2,37 @@
   width: 100%;
     height: auto;
     background: #f5f5f5;
-    padding-top: 30px;
     padding-bottom: 30px;
+   
+    .single-header {
+      height: 128px;
+      h1 {
+        margin: 40px 0 0;
+        img {
+          width: 1800px;
+          height: 49px;
+        }
+      }
+      .signup-bar.progress-bar {
+        padding: 40px 0 0 44px;
+        border: 0;
+
+        .clearfix::after {
+          margin: 0;
+          .active {
+            font-weight: 600;
+            color: #ea352d;
+            .progress-status::after {
+
+            }
+        }
+      }
+    }
+  }
+
   .registrations-new__wrapper {
     width: 900px;
-    height: auto;
+    // height: auto;
     margin-right: auto;
     margin-left: auto;
     background-color: white;
@@ -149,5 +175,49 @@
         width: 300px;
       }
     }
+
+    .registrations-new__wrapper__form__set__first-name {
+      margin-bottom: 45px;
+      height: 48px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+
+      input, textarea, select {
+        height: 48px;
+        width: 300px;
+      }
     }
+
+    .registrations-new__wrapper__form__set__family-name-kana {
+      margin-bottom: 45px;
+      height: 48px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+
+      input, textarea, select {
+        height: 48px;
+        width: 300px;
+      }
+    }
+
+    .registrations-new__wrapper__form__set__first-name-kana {
+      margin-bottom: 45px;
+      height: 48px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+
+      input, textarea, select {
+        height: 48px;
+        width: 300px;
+      }
+    }
+
+    .registrations-new__wrapper__form__set__birth {
+
+    }
+
+  }
     }
