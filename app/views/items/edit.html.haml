@@ -1,3 +1,7 @@
+%ul
+  - # errorsに入っているエラー内容を出力する
+  - @item.errors.full_messages.each do |message|
+    %li= message
 = form_for @item do |f|
   カテゴリー
   \#{f.collection_select :category_id, Category.all, :id, :name}
