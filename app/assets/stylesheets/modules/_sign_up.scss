@@ -46,7 +46,7 @@
       input, textarea, select {
         height: 48px;
         width: 300px;
-      
+        
       }
     }
     .field-birth {
@@ -54,7 +54,11 @@
       &__box {
         display: block;
         height: 50px;
-        // width: 100%;
+        margin-bottom: 40px;
+        input, textarea, select {
+          padding: 23px;
+          
+        }
         cursor: pointer;
         border-radius: 5px;
       .form-require {
@@ -67,6 +71,15 @@
         width: 32px;
         height: 19px;
       }
+    }
+      }
+    .registrations-new__wrapper__form__set__actions {
+      input, textarea, select {
+        padding: 0 125px;
+        background-color: #3ccace;
+        color: white;
+        border: none;
+        height: 50px;
       }
     }
    
