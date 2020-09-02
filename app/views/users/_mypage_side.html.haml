@@ -56,6 +56,9 @@
         = link_to new_creditcard_path, class: 'side-list__item' do
           クレジットカード登録
       %li
+        = link_to creditcard_path, method: :delete, class: 'side-list__item', data: { confirm: '削除しますか？' }  do
+          クレジットカード削除
+      %li
         = link_to '#',class: 'side-list__item' do
           メール/パスワード
       %li
