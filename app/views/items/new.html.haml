@@ -1,1 +1,75 @@
-= render partial: 'form'
+%ul
+  - # errorsに入っているエラー内容を出力する
+  - @item.errors.full_messages.each do |message|
+    %li= message
+= form_for @item do |f|
+  カテゴリー 必須
+  %br/
+  \#{f.collection_select :category_id, Category.all, :id, :name}
+  %br/
+  ブランド 任意
+  %br/
+  \#{f.text_field :brand}
+  %br/
+  商品名 必須
+  %br/
+  #{f.text_field :name}
+  %br/
+  商品説明 必須
+  %br/
+  #{f.text_field :item_explanation}
+  %br/
+  発送元地域 必須
+  %br/
+  \#{f.collection_select :shippingarea_id, Shippingarea.all, :id, :name}
+  %br/
+  商品状態 必須
+  %br/
+  \#{f.collection_select :itemcondition_id, Itemcondition.all, :id, :name}
+  %br/
+  配送料の負担 必須
+  %br/
+  \#{f.collection_select :shippingcost_id, Shippingcost.all, :id, :name}
+  %br/
+  発送までの日数 必須
+  %br/
+  \#{f.collection_select :shippingday_id, Shippingday.all, :id, :name}
+  %br/
+  配送方法 必須
+  %br/
+  \#{f.collection_select :shippingmethod_id, Shippingmethod.all, :id, :name}
+  %br/
+  価格 必須
+  %br/
+  #{f.number_field :price}
+  %br/
+  画像選択 必須
+  #image-box
+    #previews
+      - if @item.persisted?
+        - @item.item_imgs.each_with_index do |image, i|
+          = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
+    = f.fields_for :item_imgs do |image|
+      .js-file_group{"data-index" => "#{image.index}"}
+        = image.file_field :image, class: 'js-file'
+        %br/
+        %span.js-remove 削除
+      - if @item.persisted?
+        = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+    - if @item.persisted?
+      .js-file_group{"data-index" => "#{@item.item_imgs.count}"}
+        = file_field_tag :image, name: "item[item_imgs_attributes][#{@item.item_imgs.count}][image]", class: 'js-file'
+        .js-remove 削除
+  = f.submit
+  .exhibit-page__footer
+    .exhibit-page__footer__content
+      .exhibit-page__footer__content__main
+        %ul.exhibit-page__footer__lists
+          %li.exhibit-page__footer__list
+            プライバシーポリシー
+          %li.exhibit-page__footer__list
+            FURIMA利用規約
+          %li.exhibit-page__footer__list
+            特定商取引に関する表記
+          %p.exhibit-page__footer__copyright
+            © 2020 FURIMA
