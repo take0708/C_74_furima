@@ -1,7 +1,7 @@
 .headerUpper
   =link_to "#" do
     .headerUpper__link
-      =image_tag("/assets/logo/logo.png", alt:'FURIMA-logo', class: 'headerUpper__link__logo')
+      =image_tag("logo/logo.png", alt:'FURIMA-logo', class: 'headerUpper__link__logo')
   =form_for "#" ,class:'headerUpper__form' do |form|
     =form.text_field :content, class:'headerUpper__form__field', placeholder:"キーワードから探す"
     =form.button '' , class:'headerUpper__form__btn' do
@@ -15,7 +15,7 @@
       ブランド
   - if user_signed_in?
     .headerLower__right
-      =link_to  "#" do
+      =link_to  user_path(current_user) do
         マイページ
       =link_to destroy_user_session_path, method: :delete do
         ログアウト
