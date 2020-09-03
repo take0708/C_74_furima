@@ -1,7 +1,6 @@
 .header
   = render partial: 'items/header'
 .registrations-new
- 
   .registrations-new__wrapper
     .registrations-new__wrapper__nav
       会員情報入力
@@ -15,13 +14,11 @@
             %span.form-require 必須
             %br/
             = f.text_field :nickname, placeholder: '例）フリマ太郎'
-          
           .field
             = f.label :"メールアドレス"
             %span.form-require 必須
             %br/
             = f.email_field :email, placeholder: 'PC・携帯どちらでも可'
-
           .field
             = f.label :"パスワード"
             %span.form-require 必須
@@ -67,7 +64,6 @@
               = f.select :birth_year, [*1900..2019].reverse, prompt: ""
               = f.select :birth_month, [*1..12], prompt: ""
               = f.select :birth_day, [*1..31], prompt: ""
-              
           %br/
           ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
           .registrations-new__wrapper__form__set__actions
