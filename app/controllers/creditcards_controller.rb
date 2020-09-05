@@ -59,6 +59,7 @@ class CreditcardsController < ApplicationController
       flash[:alert] = 'カード情報を登録してください'
       redirect_to creditcards_path
     else
+      #before_actionで実装したところエラーが出てしまったのでいったんここに記載してあります。できれば編集したいと思います
       set_customer
       set_card_information
     end
