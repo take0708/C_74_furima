@@ -2,11 +2,14 @@
   - # errorsに入っているエラー内容を出力する
   - @item.errors.full_messages.each do |message|
     %li= message
-    .header
+.header
 .registrations-new
   .registrations-new__wrapper
     .registrations-new__wrapper__nav
       出品する商品の情報を入力してください
+      .registrations-new__wrapper__form
+        .registrations-new__wrapper__form__set
+          %form#new_user.new_user{"accept-charset" => "UTF-8", :action => "/user_registration", :method => "post"}
       = form_for @item do |f|
         カテゴリー 必須
         %br/
