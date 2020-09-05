@@ -65,5 +65,5 @@
         = link_to '#',class: 'side-list__item' do
           本人情報
       %li
-        = link_to destroy_user_session_path, method: :show, class: 'side-list__item' do
+        = link_to destroy_user_session_path, method: :delete, class: 'side-list__item', data: { confirm: 'ログアウトしますか？' } do 
           ログアウト
