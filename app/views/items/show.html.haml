@@ -42,7 +42,7 @@
         - if user_signed_in? && current_user.id == @item.seller_id
           .itemInfo__box__btn__exhibitor
             = link_to "編集する", root_path, class:"itemInfo__box__btn__exhibitor__edit"
-            = link_to "削除する", root_path, class:"itemInfo__box__btn__exhibitor__delete"
+            = link_to "削除する", item_path(@item.id), method: "delete", class:"itemInfo__box__btn__exhibitor__delete"
             
         - elsif user_signed_in? && current_user.id != @item.seller_id
           =link_to "#" do
