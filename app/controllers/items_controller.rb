@@ -23,6 +23,10 @@ class ItemsController < ApplicationController
   def edit
   end
 
+  def show
+    @items = Item.includes(:item_imgs).order('created_at DESC').last(4)
+  end
+
   def update
     if @item.update(item_params)
       redirect_to root_path

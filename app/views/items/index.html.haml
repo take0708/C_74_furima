@@ -85,7 +85,7 @@
           %li.main__pickupCategory__itemLists__list
             .main__pickupCategory__itemLists__list__details
               -#商品詳細ページへのパスに変更する予定
-              = link_to creditcards_path(item.id) do
+              = link_to item_path(item.id) do
                 = image_tag (item.item_imgs.first.image.url), alt:"item-picture", class: "main__pickupCategory__itemLists__list__details__img"
                 - if item.buyer_id.present?
                   .item__sold

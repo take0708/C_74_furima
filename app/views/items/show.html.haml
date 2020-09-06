@@ -1,0 +1,123 @@
+%body
+  = render "header"
+
+  .category
+    カテゴリー
+
+  .itemInfo
+    .itemInfo__box
+      .itemInfo__box__name
+        = @item.name
+      .itemInfo__box__firstImage
+        = image_tag(@item.item_imgs.first.image.url)
+      %li.itemInfo__box__imageList
+        - @item.item_imgs.each do |img|
+          %ul.itemInfo__box__imageList__images
+            = image_tag(img.image.url)
+      .itemInfo__box__price
+        ¥
+        = @item.price
+      .itemInfo__box__otherFee
+        (税込)送料込み
+
+      .itemInfo__box__btn
+        - if user_signed_in? && current_user.id == @item.seller_id
+          .itemInfo__box__btn__exhibitor
+            = link_to "編集する", root_path, class:"itemInfo__box__btn__exhibitor__edit"
+            = link_to "削除する", root_path, class:"itemInfo__box__btn__exhibitor__delete"
+            
+        - elsif user_signed_in? && current_user.id != @item.seller_id
+          =link_to "#" do
+            =image_tag("/assets/icon/purch.png", alt:'purch-icon', class: 'itemInfo__box__btn__purch')
+
+        - else
+          =link_to "#" do
+            =image_tag("/assets/icon/login.png", alt:'login-icon', class: 'itemInfo__box__btn__login')
+          
+      .itemInfo__box__explaination
+        = @item.item_explanation
+      %table.itemInfo__box__table
+        %tr
+          %th
+            出品者
+          %td
+            = @item.seller.nickname
+        %tr
+          %th
+            カテゴリー
+          %td
+            .itemInfo__box__table--higher
+              = @item.category.name
+        %tr
+          %th
+            商品の状態
+          %td
+            = @item.itemcondition.name
+        %tr
+          %th
+            送料の負担
+          %td
+            = @item.shippingcost.name
+        %tr
+          %th
+            発送元の地域
+          %td
+            = @item.shippingarea.name
+        %tr
+          %th
+            発送日の目安
+          %td
+            = @item.shippingday.name
+      .itemInfo__box__lower
+        .itemInfo__box__lower__favo
+          ★ お気に入り
+        .itemInfo__box__lower__report
+          不適切な商品の通報
+
+  .comment
+    .comment__box
+      =form_for "#" ,class:'comment__box__form' do |form|
+        =form.text_area :content, class:'comment__box__form__textArea'
+        %p.comment__box__form__notice
+          相手のことを考え丁寧なコメントを心がけましょう。
+          %br 不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        =form.button '' , class:'comment__box__form__btn' do
+          =link_to "#" do
+            コメントする
+ 
+  .otherItems
+    .otherItems__side
+      .otherItems__side__prev
+        =link_to "#" do
+          < 前の商品
+      .otherItems__side__next
+        =link_to "#" do
+          後ろの商品 >
+    .otherItems__category
+      =link_to "#" do
+        カテゴリーをもっと見る。
+      %ul.otherItems__pickupCategory__itemLists
+        - @items.each do |item|
+          %li.otherItems__pickupCategory__itemLists__list
+            .otherItems__pickupCategory__itemLists__list__details
+              = link_to item_path(item.id) do
+                = image_tag (item.item_imgs.first.image.url), alt:"item-picture", class: "otherItems__pickupCategory__itemLists__list__details__img"
+                - if item.buyer_id.present?
+                  .item__sold
+                    .item__sold__inner
+                      SoldOut
+                .otherItems__pickupCategory__itemLists__list__details__name 
+                  = item.name
+                .otherItems__pickupCategory__itemLists__list__details__price 
+                  = item.price
+                .otherItems__pickupCategory__itemLists__list__details__favo
+                  ★０
+                .otherItems__pickupCategory__itemLists__list__details__tax 
+                  (税込み)
+
+  = render "btmDl"
+
+  .footer
+    = render "footer"
+
+  = render "exhibitionBtn"
