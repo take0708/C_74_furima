@@ -2,7 +2,25 @@
   = render "header"
 
   .category
-    カテゴリー
+    %ul.category__list
+      %li
+        = link_to "#" do
+          FURIMA >
+      %li
+        = link_to "#" do
+          = @item.category.parent.parent.name
+          >
+      %li
+        = link_to "#" do
+          = @item.category.parent.name
+          >
+      %li
+        = link_to "#" do
+          = @item.category.name
+          >
+      %li
+        = link_to "#" do
+          = @item.name
 
   .itemInfo
     .itemInfo__box

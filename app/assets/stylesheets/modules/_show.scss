@@ -5,6 +5,9 @@
   height: 60px;
   border-top: 1px solid #eee;
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  &__list{
+    display: flex;
+  }
 }
 
 
