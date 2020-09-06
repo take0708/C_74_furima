@@ -5,19 +5,24 @@
     %ul.category__list
       %li
         = link_to "#" do
-          FURIMA >
+          FURIMA 
+      %li
+        >
       %li
         = link_to "#" do
           = @item.category.parent.parent.name
-          >
+      %li
+        >
       %li
         = link_to "#" do
           = @item.category.parent.name
-          >
+      %li
+        >
       %li
         = link_to "#" do
           = @item.category.name
-          >
+      %li
+        >
       %li
         = link_to "#" do
           = @item.name
@@ -37,20 +42,6 @@
         = @item.price
       .itemInfo__box__otherFee
         (税込)送料込み
-
-      .itemInfo__box__btn
-        - if user_signed_in? && current_user.id == @item.seller_id
-          .itemInfo__box__btn__exhibitor
-            = link_to "編集する", root_path, class:"itemInfo__box__btn__exhibitor__edit"
-            = link_to "削除する", item_path(@item.id), method: "delete", class:"itemInfo__box__btn__exhibitor__delete"
-            
-        - elsif user_signed_in? && current_user.id != @item.seller_id
-          =link_to "#" do
-            =image_tag("/assets/icon/purch.png", alt:'purch-icon', class: 'itemInfo__box__btn__purch')
-
-        - else
-          =link_to "#" do
-            =image_tag("/assets/icon/login.png", alt:'login-icon', class: 'itemInfo__box__btn__login')
           
       .itemInfo__box__explaination
         = @item.item_explanation
@@ -58,41 +49,49 @@
         %tr
           %th
             出品者
-          %td
+          %td.itemInfo__box__table__data.itemInfo__box__table__data--seller
             = @item.seller.nickname
+            - if user_signed_in? && current_user.id == @item.seller_id
+              .itemInfo__box__table__data__btn
+                = link_to "記載内容を編集する", edit_item_path(@item.id), class:"itemInfo__box__table__data__btn__edit"
+                = link_to "商品を削除する", item_path(@item.id), method: "delete", class:"itemInfo__box__table__data__btn__delete"
         %tr
           %th
             カテゴリー
-          %td
-            %ul.itemInfo__box__table__list
+          %td.itemInfo__box__table__data
+            %ul
               = link_to "#" do
                 = @item.category.parent.parent.name             
-            %ul.itemInfo__box__table__list
+            %ul
               = link_to "#" do
                 = @item.category.parent.name 
-            %ul.itemInfo__box__table__list
+            %ul
               = link_to "#" do
-                = @item.category.name 
-
+                = @item.category.name
+        %tr
+          %th
+            ブランド
+          %td.itemInfo__box__table__data
+            = @item.brand
         %tr
           %th
             商品の状態
-          %td
+          %td.itemInfo__box__table__data
             = @item.itemcondition.name
         %tr
           %th
             送料の負担
-          %td
+          %td.itemInfo__box__table__data
             = @item.shippingcost.name
         %tr
           %th
             発送元の地域
-          %td
+          %td.itemInfo__box__table__data
             = @item.shippingarea.name
         %tr
           %th
             発送日の目安
-          %td
+          %td.itemInfo__box__table__data
             = @item.shippingday.name
       .itemInfo__box__lower
         .itemInfo__box__lower__favo
@@ -107,8 +106,8 @@
         %p.comment__box__form__notice
           相手のことを考え丁寧なコメントを心がけましょう。
           %br 不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        =form.button '' , class:'comment__box__form__btn' do
-          =link_to "#" do
+        .comment__box__form__lower
+          =form.button '#', class:"comment__box__form__lower__btn" do
             コメントする
  
   .otherItems
@@ -121,29 +120,42 @@
           後ろの商品 >
     .otherItems__category
       =link_to "#" do
-        カテゴリーをもっと見る。
-      %ul.otherItems__pickupCategory__itemLists
-        - @items.each do |item|
-          %li.otherItems__pickupCategory__itemLists__list
-            .otherItems__pickupCategory__itemLists__list__details
-              = link_to item_path(item.id) do
-                = image_tag (item.item_imgs.first.image.url), alt:"item-picture", class: "otherItems__pickupCategory__itemLists__list__details__img"
-                - if item.buyer_id.present?
-                  .item__sold
-                    .item__sold__inner
-                      SoldOut
-                .otherItems__pickupCategory__itemLists__list__details__name 
-                  = item.name
-                .otherItems__pickupCategory__itemLists__list__details__price 
-                  = item.price
-                .otherItems__pickupCategory__itemLists__list__details__favo
-                  ★０
-                .otherItems__pickupCategory__itemLists__list__details__tax 
-                  (税込み)
+        = @item.category.parent.parent.name
+        をもっと見る。
+    %ul.main__pickupCategory__itemLists
+      - @items.each do |item|
+        %li.main__pickupCategory__itemLists__list
+          .main__pickupCategory__itemLists__list__details
+            -#商品詳細ページへのパスに変更する予定
+            = link_to item_path(item.id) do
+              = image_tag (item.item_imgs.first.image.url), alt:"item-picture", class: "main__pickupCategory__itemLists__list__details__img"
+              - if item.buyer_id.present?
+                .item__sold
+                  .item__sold__inner
+                    SoldOut
+              .main__pickupCategory__itemLists__list__details__name 
+                = item.name
+              .main__pickupCategory__itemLists__list__details__price 
+                = item.price
+              .main__pickupCategory__itemLists__list__details__favo
+                ★０
+              .main__pickupCategory__itemLists__list__details__tax 
+                (税込み)
 
   = render "btmDl"
 
   .footer
     = render "footer"
 
-  = render "exhibitionBtn"
+  
+
+  .fixedBtn
+    - if user_signed_in? && current_user.id != @item.seller_id
+      =link_to "#" do
+        =image_tag("/assets/icon/purch.png", alt:'purch-icon', class: 'fixedBtn__purch')
+    %end
+    - unless user_signed_in?
+      =link_to new_user_session_path do
+        =image_tag("/assets/icon/login.png", alt:'login-icon', class: 'fixedBtn__login')
+    %end
+    = render "exhibitionBtn"
