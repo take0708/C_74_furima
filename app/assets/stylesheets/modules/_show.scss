@@ -1,8 +1,36 @@
+
+
+.category{
+  width: 100%;
+  height: 60px;
+  border-top: 1px solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+}
+
+
 .itemInfo{
+  width: 100%;
+  background-color: #f8f8f8;
+  padding-top: 40px;
   &__box{
+    width: 700px; 
+    height: 1240px;
+    margin: 0px auto 40px auto;
+    background-color: white;
+    padding-top: 24px;
     &__name{
+      width: 620px;
+      height: 36px;
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 36px;
     }
     &__firstImage{
+      width: 560px;
+      height: 346px;
+      margin: 16px auto 0 auto;
       & img{
         width: 100%;
         height: 346px;
@@ -29,8 +57,19 @@
       }
     }
     &__price{
+      width: 100%;
+      height: 53px;
+      font-size: 46px;
+      font-weight: bold;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+      margin-top: 20px;
     }
     &__otherFee{
+      width: 100%;
+      height: 20px;
+      font-size: 16px;
+      text-align: center;
     }
 
     &__btn{
@@ -63,5 +102,179 @@
         }
       }
     }
+
+
+    &__explaination{
+      width: 620px;
+      height: 57px;
+      margin: 25px auto 5px auto;
+    }
+    &__table{
+      width: 620px;
+      margin: 0 auto;
+      & tr{
+        height: 52px;
+        font-size: 14px;
+        & th{
+          width: 152px;
+          text-align: center;
+          border: 1px solid #dedede;
+          background-color: #eee;
+          padding: 8px;
+        }
+        & td{
+          width: 467px;
+          padding: 15px;
+          border: 1px solid #dedede;
+
+        }
+      }
+      &--higher{
+        height: 94px;
+      }
+    }
+    
+    &__lower{
+      width: 620px;
+      height: 48px;
+      margin: 40px auto 0 auto;
+      display: flex;
+      justify-content: space-between;
+      &__favo{
+        width: 134.66px;
+        height: 38px;
+        color: #3CCACE;
+        text-align: center;
+        padding: 6px 10px;
+        border: 1px solid #ffb340;
+        border-radius: 40px;
+      }
+      &__report{
+        height: 38px;
+        color: #333;
+        padding: 6px 10px;
+        border: 1px solid #333;
+        border-radius: 4px;
+      }
+    }
+
   }
+}
+
+.comment{
+  width: 100%;
+  background-color: #f8f8f8;
+  &__box{
+    width: 700px;
+    height: 304px;
+    margin: 0 auto 0 auto;
+    padding: 24px;
+    background-color: #ffffff;
+    & a{
+      margin: 0 auto;
+    }
+    &__form{
+      width: 100%;
+      &__textArea{
+        width: 652px;
+        min-height: 104px;
+        padding: 10px;
+        margin: 0 auto;
+      }
+      &__notice{
+        padding: 8px;
+        font-size: 14px;
+        background-color: #f8f8f8;
+        margin: 10px 0;
+        text-align: left;
+      }
+      &__btn{
+        width: 300px;
+        line-height: 48px;
+        color: #fff;
+        font-size: 18px;
+        background: #3CCACE;
+        border: 1px solid #3CCACE;
+        border-radius: 100px;
+        margin: 0 auto;
+
+      }
+    }
+  }
+}
+
+.otherItems{
+  &__side{
+    width: 700px;
+    height: 24px;
+    margin: 0 auto 40px auto;
+    display: flex;
+    justify-content: space-between;
+    &__prev a{
+      color: #3CCACE;
+    }
+    &__next a{
+      color: #3CCACE;
+    }
+  }
+  &__category{
+    width: 700px;
+    height: 33px;
+    font-size: 22px;
+    margin: 24px auto 8px auto;
+    & a{
+      color: #3CCACE;
+    }
+  }
+  &__lists{
+    width: 700px;
+    height: 277px;
+    margin: 0 auto;
+    border: 1px solid royalblue;
+    display: flex;
+    &__list{
+      width: 220px;
+      height: 245px;
+      border: 1px solid blue;
+      &__img{
+        width: 220px;
+        height: 150px;
+        object-fit: cover;
+        background-color: rebeccapurple;
+      }
+      &__name{
+        height: 24px;
+        font-size: 16px;
+        margin: 16px 16px 0 16px;
+        background-color: salmon;
+      }
+      &__price{
+        width: 150px;
+        height: 24px;  
+        font-size: 16px;
+        margin-left: 16px;
+        display: inline-block;
+      }
+      &__favo{
+        font-size: 16px;
+        margin-right: 16px;
+        display: inline;
+      }
+      &__tax{
+        height: 16px;
+        font-size: 10px;
+        margin: 0 16px 16px 16px;
+      }
+      &:hover{
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+.otherItems__Lists__list__img{
+  width: 220px;
+  height: 150px;
+  object-fit: cover;
+  background-color: rebeccapurple;
 }

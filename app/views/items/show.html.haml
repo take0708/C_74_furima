@@ -46,8 +46,16 @@
           %th
             カテゴリー
           %td
-            .itemInfo__box__table--higher
-              = @item.category.name
+            %ul.itemInfo__box__table__list
+              = link_to "#" do
+                = @item.category.parent.parent.name             
+            %ul.itemInfo__box__table__list
+              = link_to "#" do
+                = @item.category.parent.name 
+            %ul.itemInfo__box__table__list
+              = link_to "#" do
+                = @item.category.name 
+
         %tr
           %th
             商品の状態
