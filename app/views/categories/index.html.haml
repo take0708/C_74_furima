@@ -13,7 +13,6 @@
       .category--title
         .category-title__parents
           - @parents.each do |parent|
-            -# parent.idをidに指定していいのか？
             .category--title__parents__parent{ id: parent.id } 
               = link_to parent.name, category_path(parent), class: "parentLink"
 
