@@ -109,7 +109,7 @@
         .comment__box__form__lower
           =form.button '#', class:"comment__box__form__lower__btn" do
             コメントする
- 
+  
   .otherItems
     .otherItems__side
       .otherItems__side__prev
@@ -122,32 +122,14 @@
       =link_to "#" do
         = @item.category.parent.parent.name
         をもっと見る。
-    %ul.main__pickupCategory__itemLists
+    %ul.otherItems__itemLists
       - @items.each do |item|
-        %li.main__pickupCategory__itemLists__list
-          .main__pickupCategory__itemLists__list__details
-            -#商品詳細ページへのパスに変更する予定
-            = link_to item_path(item.id) do
-              = image_tag (item.item_imgs.first.image.url), alt:"item-picture", class: "main__pickupCategory__itemLists__list__details__img"
-              - if item.buyer_id.present?
-                .item__sold
-                  .item__sold__inner
-                    SoldOut
-              .main__pickupCategory__itemLists__list__details__name 
-                = item.name
-              .main__pickupCategory__itemLists__list__details__price 
-                = item.price
-              .main__pickupCategory__itemLists__list__details__favo
-                ★０
-              .main__pickupCategory__itemLists__list__details__tax 
-                (税込み)
-
+        = render "itemList", {item: item}
+       
   = render "btmDl"
 
   .footer
     = render "footer"
-
-  
 
   .fixedBtn
     - if user_signed_in? && current_user.id != @item.seller_id
