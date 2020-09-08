@@ -87,7 +87,6 @@
       %ul.main__pickupCategory__itemLists
         - @new_items.each do |item|
           = render "itemList", {item: item}
-             
     %section.main__pickupBrand
       .main__pickupBrand__title ピックアップブランド
       .main__pickupBrand__archive
@@ -95,8 +94,8 @@
           アーカイバ
       %ul.main__pickupBrand__itemLists
         - @rnd_items.each do |item|
-          = render "itemList", {item: item}
-    
+          - unless item.buyer_id.presence
+            = render "itemList_noView_soldItem", {item: item}
     %section.main__btmDl
       = render "btmDl"
 
