@@ -2,7 +2,8 @@ class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create]
 
   def index
-    @items = Item.includes(:item_imgs).order('created_at DESC').last(4)
+    @new_items = Item.includes(:item_imgs).order('created_at DESC').last(4)
+    @rnd_items = Item.includes(:item_imgs).order('RAND()').limit(4)
   end
 
   def new
@@ -23,6 +24,10 @@ class ItemsController < ApplicationController
   def edit
   end
 
+  def show
+    @items = Item.includes(:item_imgs).where(category_id: @item.category_id).where.not(id: @item.id).order('RAND()')
+  end
+
   def update
     if @item.update(item_params)
       redirect_to root_path
@@ -32,9 +37,13 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    redirect_to root_path
+    if @item.destroy
+      redirect_to root_path, notice: "商品を削除しました。"
+    else
+      redirect_to item_path(@item.id), notice: "商品を削除できませんでした。"
+    end
   end
+
 end
 
 private
