@@ -1,4 +1,4 @@
-.container { 
+.goodsContainer { 
   &__box {
     background-color: $bg-wh;
     padding-bottom: 32px;
@@ -10,7 +10,7 @@
     &__down--contents {
       width: 700px;
       margin: 0 auto;
-      .category {
+      .goodsCategory {
         &__parent {
           display: flex;
           flex-wrap: wrap;
@@ -33,7 +33,7 @@
           background: #3CCACE;
         }
       }
-      .category--title {
+      .goodsCategory--title {
         &__parents {
           border-radius: 6px;
           &__parent {
