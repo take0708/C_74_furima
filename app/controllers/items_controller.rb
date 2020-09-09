@@ -2,7 +2,8 @@ class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create, :new]
 
   def index
-    @items = Item.includes(:item_imgs).order('created_at DESC')
+    @new_items = Item.includes(:item_imgs).order('created_at DESC').last(4)
+    @rnd_items = Item.includes(:item_imgs).order('RAND()').limit(4)
   end
 
   def new
@@ -13,7 +14,6 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-       #@item.item_imgs.save
       redirect_to root_path, notice: 'Event was successfully created.'
     else
       @item.item_imgs.new if @item.item_imgs.length == 0
@@ -22,6 +22,10 @@ class ItemsController < ApplicationController
   end
 
   def edit
+  end
+
+  def show
+    @items = Item.includes(:item_imgs).where(category_id: @item.category_id).where.not(id: @item.id).order('RAND()')
   end
 
   def update
@@ -36,9 +40,13 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    redirect_to root_path
+    if @item.destroy
+      redirect_to root_path, notice: "商品を削除しました。"
+    else
+      redirect_to item_path(@item.id), notice: "商品を削除できませんでした。"
+    end
   end
+
 end
 
 private
@@ -57,9 +65,7 @@ def item_params
     :shippingcost_id,
     :shippingday_id,
     :item_size_id,
-    :seller_id,
-    :buyer_id,
-    item_imgs_attributes: [:image, :_destroy, :id])
+    item_imgs_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
 end
 
 def set_item
