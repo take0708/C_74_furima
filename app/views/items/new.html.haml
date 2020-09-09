@@ -1,16 +1,15 @@
 .header
-  %ul
-  - # errorsに入っているエラー内容を出力する
-  - @item.errors.full_messages.each do |message|
-    %li= message
 .sell-new
   .sell-new__wrapper
     .sell-new__wrapper__nav
-      出品する商品の情報を入力してください
       .sell-new__wrapper__form
         .sell-new__wrapper__form__set
         %form#new_item.new_item
           = form_for @item do |f|
+            %ul
+            - # errorsに入っているエラー内容を出力する
+            - @item.errors.full_messages.each do |message|
+              %li= message
             .field
               = f.label :"カテゴリー" 
               %span.attention 必須
@@ -25,54 +24,55 @@
             %br/
             .field
               = f.label :"商品名" 
-              %span.form-require 必須
+              %span.attention 必須
               %br/
               = f.text_field :name, placeholder: '40文字以内'
             %br/
             .field
               = f.label :"商品説明"
-              %span.form-require 必須
+              %span.attention 必須
               %br/
               = f.text_field :item_explanation, placeholder: '1000文字以内'
             %br/
             .field
               = f.label :"発送元地域"
-              %span.form-require 必須
+              %span.attention 必須
               %br/
               = f.collection_select :shippingarea_id, Shippingarea.all, :id, :name
             %br/
             .field
               = f.label :"商品状態"
-              %span.form-require 必須
+              %span.attention 必須
               %br/
               = f.collection_select :itemcondition_id, Itemcondition.all, :id, :name
             %br/
             .field
               =f.label :"配送料の負担"
-              %span.form-require 必須
+              %span.attention 必須
               %br/
               = f.collection_select :shippingcost_id, Shippingcost.all, :id, :name
             %br/
             .field
               = f.label :"発送までの日数"
-              %span.form-require 必須
+              %span.attention 必須
               %br/
               = f.collection_select :shippingday_id, Shippingday.all, :id, :name
             %br/
             .field
               = f.label :"配送方法" 
-              %span.form-require 必須
+              %span.attention 必須
               %br/
               = f.collection_select :shippingmethod_id, Shippingmethod.all, :id, :name
             %br/
             .field
               = f.label :"価格"
-              %span.form-require 必須
+              %span.attention 必須
               %br/
               = f.number_field :price
             %br/
-            = f.label :"画像選択"
-            %span.form-require 必須
+            .filed
+              = f.label :"商品の画像"
+              %span.attention 必須
             #image-box
               #previews
                 - if @item.persisted?
@@ -82,23 +82,15 @@
                 .js-file_group{"data-index" => "#{image.index}"}
                   = image.file_field :image, class: 'js-file'
                   %br/
-                  %span.js-remove 削除
+                  %span.js-remove 添付した画像を削除
                 - if @item.persisted?
                   = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
               - if @item.persisted?
                 .js-file_group{"data-index" => "#{@item.item_imgs.count}"}
                   = file_field_tag :image, name: "item[item_imgs_attributes][#{@item.item_imgs.count}][image]", class: 'js-file'
-                  .js-remove 削除
-            = f.submit
-            .exhibit-page__footer
-              .exhibit-page__footer__content
-                .exhibit-page__footer__content__main
-                  %ul.exhibit-page__footer__lists
-                    %li.exhibit-page__footer__list
-                      プライバシーポリシー
-                    %li.exhibit-page__footer__list
-                      FURIMA利用規約
-                    %li.exhibit-page__footer__list
-                      特定商取引に関する表記
-                    %li.exhibit-page__footer__copyright
-                      © 2020 FURIMA
+                  .js-remove 添付した画像を削除
+            .button
+              = f.submit
+= render 'items/btmDl'
+.footer
+  = render partial: 'items/footer'
