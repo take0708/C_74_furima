@@ -1,15 +1,14 @@
 .header
 .sell-new
+  %ul
+    @item.errors.full_messages.each do |message|
+    %li= message
   .sell-new__wrapper
     .sell-new__wrapper__nav
       .sell-new__wrapper__form
         .sell-new__wrapper__form__set
         %form#new_item.new_item
           = form_for @item do |f|
-            %ul
-            - # errorsに入っているエラー内容を出力する
-            - @item.errors.full_messages.each do |message|
-              %li= message
             .field
               = f.label :"カテゴリー" 
               %span.attention 必須

@@ -61,7 +61,6 @@ def item_params
     :shippingmethod_id,
     :shippingcost_id,
     :shippingday_id,
-    :item_size_id,
     item_imgs_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
 end
 
