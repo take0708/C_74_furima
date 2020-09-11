@@ -128,16 +128,16 @@
        
   = render "btmDl"
 
-  .footer
-    = render "footer"
+  
+  = render "footer"
 
   .fixedBtn
     - if user_signed_in? && current_user.id != @item.seller_id
       =link_to "#" do
-        =image_tag("/assets/icon/purch.png", alt:'purch-icon', class: 'fixedBtn__purch')
+        =image_tag("icon/purch.png", alt:'purch-icon', class: 'fixedBtn__purch')
     %end
     - unless user_signed_in?
       =link_to new_user_session_path do
-        =image_tag("/assets/icon/login.png", alt:'login-icon', class: 'fixedBtn__login')
+        =image_tag("icon/login.png", alt:'login-icon', class: 'fixedBtn__login')
     %end
     = render "exhibitionBtn"
