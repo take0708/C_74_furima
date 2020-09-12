@@ -29,12 +29,10 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.seller_id == current_user.id
-      if @item.update(item_params)
-        redirect_to root_path, notice:'更新しました'
-      else
-        redirect_to edit_item_path(@item.id), notice: '更新できませんでした' 
-      end
+    if @item.seller_id == current_user.id && @item.update(item_params)
+      redirect_to root_path, notice:'更新しました'
+    else
+      redirect_to edit_item_path(@item.id), notice: '更新できませんでした' 
     end
   end
 
