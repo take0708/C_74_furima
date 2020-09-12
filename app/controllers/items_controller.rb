@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
       if @item.update(item_params)
         redirect_to root_path, notice:'更新しました'
       else
-        redirect_to edit_item_path(@item.id), notice: '編集できませんでした' 
+        redirect_to edit_item_path(@item.id), notice: '更新できませんでした' 
       end
     end
   end
