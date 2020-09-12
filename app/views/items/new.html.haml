@@ -1,4 +1,5 @@
 .header
+= render "header"
 .sell-new
   %ul
     @item.errors.full_messages.each do |message|
@@ -7,7 +8,6 @@
     .sell-new__wrapper__nav
       .sell-new__wrapper__form
         .sell-new__wrapper__form__set
-        %form#new_item.new_item
           = form_for @item do |f|
             .field
               = f.label :"カテゴリー" 
