@@ -31,10 +31,9 @@ class ItemsController < ApplicationController
   def update
     if @item.user_id == current_user.id
       if @item.update(item_params)
-        redirect_to root_path
+        redirect_to root_path, notice:'更新しました'
       else
-        flash[:alert] = '投稿に失敗しました'
-        render :edit
+        redirect_to(edit_item_path, notice: '編集できませんでした')
       end
     end
   end
