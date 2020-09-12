@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: [:index, :new, :create, :new]
+  before_action :set_item, except: [:index, :new, :create]
 
   def index
     @new_items = Item.includes(:item_imgs).order('created_at DESC').last(4)
@@ -29,11 +29,11 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.user_id == current_user.id
+    if @item.seller_id == current_user.id
       if @item.update(item_params)
         redirect_to root_path, notice:'更新しました'
       else
-        redirect_to(edit_item_path, notice: '編集できませんでした')
+        redirect_to edit_item_path(@item.id), notice: '編集できませんでした' 
       end
     end
   end
