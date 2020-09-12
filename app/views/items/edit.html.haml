@@ -1,5 +1,5 @@
 .header
-  = render "header"
+= render "header"
 .sell-new
   .sell-new__wrapper
     .sell-new__wrapper__nav
@@ -7,7 +7,6 @@
         .sell-new__wrapper__form__set
           = form_for @item do |f|
             %ul
-            - # errorsに入っているエラー内容を出力する
             - @item.errors.full_messages.each do |message|
               %li= message
             .field
