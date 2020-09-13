@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @items = Item.includes(:item_imgs).where(category_id: @item.category_id).where.not(id: @item.id).order('RAND()')
+    @items = Item.includes(:item_imgs).where(category_id: @item.category_id).where.not(id: @item.id).order('RAND()').limit(4)
   end
 
   def update

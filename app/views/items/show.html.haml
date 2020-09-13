@@ -56,8 +56,12 @@
             = @item.seller.nickname
             - if user_signed_in? && current_user.id == @item.seller_id
               .itemInfo__box__table__data__btn
-                = link_to "記載内容を編集する", edit_item_path(@item.id), class:"itemInfo__box__table__data__btn__edit"
-                = link_to "商品を削除する", item_path(@item.id), method: "delete", class:"itemInfo__box__table__data__btn__delete"
+                = link_to edit_item_path(@item.id), class:"itemInfo__box__table__data__btn__edit" do
+                  = icon('fa','edit') 
+                  %span 記載内容を編集する
+                = link_to item_path(@item.id), method: "delete", class:"itemInfo__box__table__data__btn__delete" do
+                  = icon('far','minus-square')
+                  %span 商品を削除する
         %tr
           %th
             カテゴリー
@@ -98,9 +102,11 @@
             = @item.shippingday.name
       .itemInfo__box__lower
         .itemInfo__box__lower__favo
-          ★ お気に入り
+          = icon('fa','star') 
+          %span お気に入り
         .itemInfo__box__lower__report
-          不適切な商品の通報
+          = icon('fa','flag') 
+          %span 不適切な商品の通報
 
   .comment
     .comment__box
