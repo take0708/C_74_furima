@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create]
 
   def index
-    @new_items = Item.includes(:item_imgs).order('created_at DESC').last(4)
+    @new_items = Item.includes(:item_imgs).order('created_at DESC').limit(4)
     @rnd_items = Item.includes(:item_imgs).order('RAND()').limit(4)
   end
 
