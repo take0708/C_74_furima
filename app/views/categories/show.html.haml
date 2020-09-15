@@ -1,5 +1,13 @@
 .main
   = render partial: "items/header"
+  - breadcrumb :category_index
+  - if @category.root?
+    - breadcrumb :parent_category
+  - elsif @category.has_children?
+    - breadcrumb :child_category
+  - else
+    - breadcrumb :grandchild_category
+  = render "layouts/breadcrumbs"
   .main__box
     .main__box__down--contents
       .categories--title
