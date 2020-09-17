@@ -5,7 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   validates :nickname, presence: true, length: {maximum: 20}
-  # ↓正規表現で@とドメインを必須にする(複雑そうなので後回し)
   validates :email, presence: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   validates :password, presence: true, length: {minimum: 7},format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{7,128}+\z/i, message: "は英字と数字両方を含むパスワードを設定してください" } # 英字と数字の両方を含む7文字以上128文字以下
 
